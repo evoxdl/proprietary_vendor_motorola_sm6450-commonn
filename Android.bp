@@ -4,7 +4,7 @@
 
 soong_namespace {
     imports: [
-        "device/motorola/sm7435-common",
+        "device/motorola/sm6450-common",
         "hardware/motorola",
         "hardware/qcom-caf/common/libqti-perfd-client",
         "hardware/qcom-caf/sm8450",
