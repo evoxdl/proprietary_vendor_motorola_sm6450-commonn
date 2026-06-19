@@ -3294,40 +3294,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "libembmsservice",
-    owner: "motorola",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libembmsservice.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libqmi_cci",
-                "libqmi",
-                "libqmi_client_helper",
-                "libqmiservices",
-                "libidl",
-                "libdsutils",
-                "libtime_genoff",
-                "libdiag",
-                "libdsi_netctrl",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "libengineplugin",
     owner: "motorola",
     strip: {
@@ -5022,6 +4988,7 @@ cc_prebuilt_library_shared {
                 "libmdmcutback",
                 "liblog",
                 "libsysutils",
+                "libril",
                 "libc++",
                 "libc",
                 "libm",
@@ -6133,7 +6100,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libqcodec2_core.so",
             ],
             shared_libs: [
-                "libcodec2_shim",
                 "libutils",
                 "libcutils",
                 "liblog",
@@ -9140,32 +9106,6 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libvideoutils.so",
             ],
             shared_libs: [
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libvmmem",
-    owner: "motorola",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libvmmem.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libbase",
                 "libc++",
                 "libc",
                 "libm",
@@ -12193,63 +12133,6 @@ cc_prebuilt_library_shared {
 }
 
 cc_prebuilt_library_shared {
-    name: "vendor.qti.hardware.embmssl@1.0",
-    owner: "motorola",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.qti.hardware.embmssl@1.0.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "vendor.qti.hardware.embmssl@1.1",
-    owner: "motorola",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/vendor.qti.hardware.embmssl@1.1.so",
-            ],
-            shared_libs: [
-                "vendor.qti.hardware.embmssl@1.0",
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
     name: "vendor.qti.hardware.fm@1.0",
     owner: "motorola",
     strip: {
@@ -15007,7 +14890,7 @@ cc_prebuilt_library_shared {
                 "vendor.qti.imsrtpservice@3.1",
                 "libbinder",
                 "libbinder_ndk",
-                "vendor.qti.ImsRtpService-V1-ndk",
+                "vendor.qti.ImsRtpService-V2-ndk",
                 "libdiag_system",
                 "libcutils",
                 "libutils",
@@ -16167,6 +16050,32 @@ cc_prebuilt_library_shared {
         android_arm64: {
             srcs: [
                 "proprietary/system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so",
+            ],
+            shared_libs: [
+                "libbinder_ndk",
+                "android.hardware.common-V2-ndk",
+                "libc++",
+                "libc",
+                "libm",
+                "libdl",
+            ],
+        },
+    },
+    compile_multilib: "64",
+    prefer: true,
+    system_ext_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "vendor.qti.ImsRtpService-V2-ndk",
+    owner: "motorola",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: [
+                "proprietary/system_ext/lib64/vendor.qti.ImsRtpService-V2-ndk.so",
             ],
             shared_libs: [
                 "libbinder_ndk",
@@ -17405,39 +17314,6 @@ cc_prebuilt_binary {
                 "libcdfw_remote_api",
                 "libpal_net_if",
                 "libsys_info_cache",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_binary {
-    name: "embmsslServer",
-    owner: "motorola",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/embmsslServer",
-            ],
-            shared_libs: [
-                "libembmsservice",
-                "liblog",
-                "libutils",
-                "libhidlbase",
-                "vendor.qti.hardware.embmssl@1.0",
-                "vendor.qti.hardware.embmssl@1.1",
-                "libqmiservices",
-                "libqmi_cci",
-                "libqmi_encdec",
                 "libc++",
                 "libc",
                 "libm",
@@ -19670,60 +19546,7 @@ filegroup {
 filegroup {
     name: "proprietary_rildb_ecc_sql_files",
     srcs: [
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/0_initial.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/10_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/11_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/12_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/13_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/14_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/15_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/16_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/17_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/18_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/19_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/20_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/21_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/22_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/23_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/24_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/25_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/26_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/27_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/28_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/29_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/30_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/31_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/33_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/34_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/35_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/36_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/37_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/38_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/39_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/3_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/40_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/41_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/42_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/43_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/44_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/45_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/46_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/47_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/48_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/49_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/4_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/50_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/51_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/52_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/53_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/54_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/55_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/56_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/5_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/6_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/7_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/8_version_qcrildb.sql",
-        "proprietary/vendor/etc/qcril_database/upgrade/ecc/9_version_qcrildb.sql",
+        "proprietary/vendor/etc/qcril_database/upgrade/ecc/mot_generated_ecc_qcrildb.sql",
     ],
 }
 
